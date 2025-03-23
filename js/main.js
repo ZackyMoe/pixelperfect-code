@@ -157,44 +157,15 @@ document.addEventListener("DOMContentLoaded", function () {
   const contactForm = document.getElementById("contact-form");
   if (contactForm) {
     contactForm.addEventListener("submit", function (e) {
+      // Temporarily prevent default to validate first
       e.preventDefault();
 
+      // If validation passes, submit the form to Netlify
       if (validateForm()) {
-        // In a real implementation, you would send the form data to a server
-        // For now, we'll just show a success message
-        const formData = new FormData(contactForm);
-        let formValues = {};
-
-        for (let [key, value] of formData.entries()) {
-          formValues[key] = value;
-        }
-
-        console.log("Form submitted:", formValues);
-
-        // Show success message
-        const formContainer = contactForm.parentNode;
-        const successMessage = document.createElement("div");
-        successMessage.className = "success-message";
-
-        const successIcon = document.createElement("div");
-        successIcon.innerHTML =
-          '<i class="fas fa-check-circle" style="font-size: 48px; color: #4caf50; margin-bottom: 15px;"></i>';
-
-        const successTitle = document.createElement("h3");
-        successTitle.textContent = "Message Sent!";
-        successTitle.style.marginBottom = "10px";
-
-        const successText = document.createElement("p");
-        successText.textContent =
-          "Thank you for contacting Pixel Perfect. We will get back to you as soon as possible.";
-
-        successMessage.appendChild(successIcon);
-        successMessage.appendChild(successTitle);
-        successMessage.appendChild(successText);
-
-        contactForm.style.display = "none";
-        formContainer.appendChild(successMessage);
+        // Allow the form to submit to Netlify and redirect to success.html
+        contactForm.submit();
       }
+      // If validation fails, the form won't submit
     });
   }
 
