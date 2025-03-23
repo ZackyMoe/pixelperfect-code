@@ -198,6 +198,19 @@ While no protection is 100% foolproof, these measures significantly reduce the l
 
 Learn more about [blocking AI bots with Netlify](https://www.netlify.com/blog/block-ai-bots-from-crawling-your-site/).
 
+## Configuration Through netlify.toml
+
+Your website includes a special configuration file called `netlify.toml` that handles many settings automatically. This file:
+
+- Sets up your custom 404 error page
+- Configures security settings to protect your content
+- Enables form handling for your contact form
+- Optimizes image and file loading for better performance
+
+When you deploy to Netlify, this file will be automatically detected and applied, so you don't need to manually configure these settings through the Netlify dashboard.
+
+If you need to modify any of these settings, your developer can update this file for you.
+
 ## Accessing Your Website Files
 
 Your website is developed and managed through GitHub, which stores all your website files. As a client, you have two main options for accessing these files:

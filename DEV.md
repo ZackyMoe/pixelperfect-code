@@ -1,4 +1,5 @@
 Learn more: [Inviting collaborators to a personal repository](https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/inviting-collaborators-to-a-personal-repository)
+Learn more: [Environment variables in Netlify](https://docs.netlify.com/environment-variables/overview/)
 
 ## Netlify Deployment Options for Clients
 
@@ -65,4 +66,89 @@ For ongoing client relationships:
 - Client doesn't have full ownership of their Netlify account
 - More complex permissions management
 
-## Netlify Deployment Guide 
+## Netlify Deployment Guide
+
+## Using netlify.toml for Configuration
+
+The `netlify.toml` file provides a centralized way to configure many Netlify settings. This is often more maintainable than setting options through the Netlify UI.
+
+### Advantages of netlify.toml
+
+- **Version controlled**: All configuration is stored in your repository
+- **Consistent across deployments**: Settings apply automatically to all deploys
+- **Easier collaboration**: Team members can see and modify settings in code
+- **Less manual configuration**: Reduces the need for clicking through the Netlify UI
+
+### Key netlify.toml Settings
+
+The Pixel Perfect site includes a pre-configured netlify.toml file with the following settings:
+
+```toml
+[build]
+  publish = "/"
+
+# Custom 404 page
+[[redirects]]
+  from = "/*"
+  to = "/404.html"
+  status = 404
+
+# Security headers to protect from AI scraping
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Robots-Tag = "noai"
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+# Enable form handling
+[build.processing.html]
+  pretty_urls = true
+
+# Cache control for better performance
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+```
+
+### Adding Form Success Redirects
+
+You can configure form submissions to redirect to a success page by adding this to netlify.toml:
+
+```toml
+# Form success redirect
+[[redirects]]
+  from = "/thank-you"
+  to = "/success.html"
+  status = 302
+
+[forms]
+  [forms.contact]
+    success_url = "/thank-you"
+```
+
+### Common netlify.toml Configurations
+
+- **Redirects**: Manage URL redirects and rewrites
+- **Headers**: Set HTTP headers for security and caching
+- **Build settings**: Define build command, publish directory, etc.
+- **Environment variables**: Set environment variables for builds
+- **Functions**: Configure serverless functions
+- **Split testing**: Setup A/B testing for your site
+
+Learn more: [Netlify Configuration File](https://docs.netlify.com/configure-builds/file-based-configuration/)
+
+## File Structure 
