@@ -1,13 +1,13 @@
 /* Google Fonts Import */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;800&display=swap');
-@import url('https://fonts.cdnfonts.com/css/sansation');
+/* Local Sansation Font */
 
 /* Custom Font for Sansation */
 @font-face {
   font-family: 'Sansation';
-  src: url('https://db.onlinewebfonts.com/t/00370d92f1b404f7f65141b66f27b864.woff2') format('woff2'),
-       url('https://db.onlinewebfonts.com/t/00370d92f1b404f7f65141b66f27b864.woff') format('woff');
+  src: url('../fonts/Sansation_Regular.woff') format('woff'),
+       url('../fonts/Sansation_Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -15,8 +15,8 @@
 
 @font-face {
   font-family: 'Sansation';
-  src: url('https://db.onlinewebfonts.com/t/22f7e9dedc261b433afe192d454b08cb.woff2') format('woff2'),
-       url('https://db.onlinewebfonts.com/t/22f7e9dedc261b433afe192d454b08cb.woff') format('woff');
+  src: url('../fonts/Sansation_Bold.woff') format('woff'),
+       url('../fonts/Sansation_Bold.ttf') format('truetype');
   font-weight: bold;
   font-style: normal;
   font-display: swap;
@@ -24,8 +24,8 @@
 
 @font-face {
   font-family: 'Sansation';
-  src: url('https://db.onlinewebfonts.com/t/1d0a11a96eda26a47a87d25b7e67f4a5.woff2') format('woff2'),
-       url('https://db.onlinewebfonts.com/t/1d0a11a96eda26a47a87d25b7e67f4a5.woff') format('woff');
+  src: url('../fonts/Sansation_Light.woff') format('woff'),
+       url('../fonts/Sansation_Light.ttf') format('truetype');
   font-weight: 300;
   font-style: normal;
   font-display: swap;
