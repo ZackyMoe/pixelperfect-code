@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Message Sent - Pixel Perfect</title>
+    <meta
+      name="description"
+      content="Thank you for contacting Pixel Perfect."
+    />
+    <link rel="icon" type="image/png" href="images/logo.png" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <style>
+      .success-section {
+        min-height: calc(100vh - 200px);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 100px 20px;
+        background-color: var(--section-bg-light);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .success-box {
+        background-color: white;
+        border-radius: var(--border-radius);
+        box-shadow: var(--card-shadow);
+        padding: 60px 40px;
+        max-width: 600px;
+        width: 90%;
+        animation: fadeIn 0.8s ease-out forwards;
+        position: relative;
+        z-index: 1;
+      }
+
+      .success-icon {
+        font-size: 70px;
+        color: var(--accent-color-1);
+        margin-bottom: 30px;
+        animation: scaleUp 0.5s ease-out forwards;
+      }
+
+      .success-title {
+        font-size: 2.2rem;
+        margin-bottom: 20px;
+        font-family: "Sansation", "Work Sans", sans-serif;
+        animation: fadeInUp 0.6s ease-out 0.2s forwards;
+        opacity: 0;
+      }
+
+      .success-message {
+        font-size: 1.1rem;
+        margin-bottom: 30px;
+        line-height: 1.6;
+        color: var(--secondary-color);
+        animation: fadeInUp 0.6s ease-out 0.4s forwards;
+        opacity: 0;
+      }
+
+      .actions {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 20px;
+        animation: fadeInUp 0.6s ease-out 0.6s forwards;
+        opacity: 0;
+      }
+
+      .back-button {
+        margin-bottom: 15px;
+      }
+
+      .text-link {
+        color: var(--accent-color-1);
+        text-decoration: none;
+        font-weight: 600;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        transition: var(--transition);
+      }
+
+      .text-link i {
+        margin-left: 8px;
+        transition: transform 0.3s ease;
+      }
+
+      .text-link:hover {
+        color: var(--primary-color);
+      }
+
+      .text-link:hover i {
+        transform: translateX(3px);
+      }
+
+      .bg-bubble {
+        opacity: 0.4;
+      }
+
+      @keyframes scaleUp {
+        0% {
+          transform: scale(0.5);
+          opacity: 0;
+        }
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .success-section {
+          padding: 80px 20px;
+          min-height: calc(100vh - 180px);
+        }
+
+        .success-box {
+          padding: 40px 25px;
+        }
+
+        .success-title {
+          font-size: 1.8rem;
+        }
+
+        .success-icon {
+          font-size: 60px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .success-section {
+          padding: 60px 15px;
+        }
+
+        .success-box {
+          padding: 30px 20px;
+          width: 100%;
+        }
+
+        .success-title {
+          font-size: 1.6rem;
+        }
+
+        .success-message {
+          font-size: 1rem;
+        }
+
+        .success-icon {
+          font-size: 50px;
+          margin-bottom: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="container header-container">
+        <div class="logo">
+          <img src="images/logo.png" alt="Pixel Perfect Logo" />
+          <h1>Pixel Perfect</h1>
+        </div>
+        <button
+          class="mobile-toggle"
+          aria-label="Toggle navigation menu"
+          aria-expanded="false"
+          aria-controls="nav-menu"
+        >
+          <i class="fas fa-bars"></i>
+        </button>
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#services">Services</a></li>
+          <li><a href="index.html#why-us">Why Choose Us</a></li>
+          <li><a href="index.html#brands">Our Partners</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <!-- Success Message Section -->
+    <section class="success-section">
+      <div class="bg-animation">
+        <div class="bg-bubble"></div>
+        <div class="bg-bubble"></div>
+        <div class="bg-bubble"></div>
+        <div class="bg-bubble"></div>
+      </div>
+      <div class="success-box">
+        <div class="success-icon">
+          <i class="fas fa-check-circle"></i>
+        </div>
+        <h1 class="success-title">Message Sent!</h1>
+        <p class="success-message">
+          Thank you for contacting Pixel Perfect. We've received your message
+          and will get back to you as soon as possible. A confirmation has been
+          sent to your email.
+        </p>
+        <div class="actions">
+          <a href="index.html" class="btn back-button">Back to Homepage</a>
+          <a href="index.html#services" class="text-link"
+            >Explore our services <i class="fas fa-arrow-right"></i
+          ></a>
+          <a href="index.html#brands" class="text-link"
+            >View our trusted partners <i class="fas fa-arrow-right"></i
+          ></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <img
+            src="images/logo.png"
+            alt="Pixel Perfect Logo"
+            class="footer-logo"
+          />
+          <p>
+            Luxury audio & video solutions perfected for your home and business.
+          </p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        <div class="copyright">
+          <p>&copy; 2023 Pixel Perfect. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>
