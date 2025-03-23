@@ -1571,3 +1571,273 @@ footer {
 .brands .brand-card:nth-child(7) {
   animation: fadeInUp 0.8s ease-out 0.7s forwards;
 }
+
+/* Media queries for responsiveness */
+@media (max-width: 992px) {
+  .contact-container {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .contact-info {
+    text-align: center;
+  }
+  
+  .contact-info h3:after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .contact-info p {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .brands-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  
+  .service-card {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .service-card h3 {
+    font-size: 1.2rem;
+  }
+  
+  .section-title h2 {
+    font-size: 2.1rem;
+  }
+  
+  .contact-form {
+    padding: 30px 25px;
+  }
+  
+  .contact-form input,
+  .contact-form textarea {
+    padding: 12px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 576px) {
+  .brands {
+    padding: 60px 0;
+  }
+  
+  .brands-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+  
+  .brands .section-title h2 {
+    font-size: 2rem;
+  }
+  
+  .brands .section-title p {
+    font-size: 1rem;
+  }
+  
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .section-title h2 {
+    font-size: 1.8rem;
+  }
+  
+  .btn {
+    padding: 12px 25px;
+    font-size: 14px;
+  }
+  
+  .service-card, 
+  .feature-card, 
+  .brand-card {
+    padding: 30px 20px;
+  }
+  
+  .contact-form {
+    padding: 25px 20px;
+    width: 100%;
+  }
+  
+  .contact-info p {
+    flex-direction: row;
+    align-items: flex-start;
+    text-align: left;
+    justify-content: flex-start;
+  }
+  
+  .contact-info i {
+    margin-top: 3px;
+  }
+}
+
+@media (max-width: 480px) {
+  .brands {
+    padding: 50px 0;
+  }
+  
+  .brands-grid {
+    max-width: 320px;
+  }
+  
+  .brand-card {
+    padding: 30px 20px;
+  }
+  
+  .brand-card h3 {
+    font-size: 1.25rem;
+  }
+  
+  .hero-logo {
+    max-width: 180px;
+    margin: 0 auto 20px;
+    padding: 0;
+    object-fit: contain;
+    width: 100%;
+  }
+  
+  .brands-grid {
+    grid-template-columns: 1fr;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .hero h1 {
+    font-size: 1.9rem;
+    margin-bottom: 20px;
+  }
+  
+  .hero p {
+    font-size: 1rem;
+    margin-bottom: 25px;
+  }
+  
+  .hero .btn {
+    padding: 14px 28px;
+    font-size: 0.95rem;
+  }
+  
+  .section-title h2 {
+    font-size: 1.8rem;
+  }
+  
+  .section-title {
+    margin-bottom: 30px;
+  }
+  
+  .social-links a {
+    font-size: 1.8rem;
+    margin: 0 15px;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+  }
+  
+  .scroll-top {
+    width: 50px;
+    height: 50px;
+    bottom: 25px;
+    right: 25px;
+  }
+  
+  section {
+    padding: 50px 0;
+  }
+  
+  .contact-container {
+    gap: 20px;
+  }
+  
+  .contact-form .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .contact-form label {
+    margin-bottom: 5px;
+    font-size: 14px;
+  }
+  
+  .contact-form input,
+  .contact-form textarea {
+    padding: 10px;
+    font-size: 14px;
+  }
+  
+  .contact-form textarea {
+    height: 120px;
+  }
+  
+  .contact-info h3 {
+    font-size: 1.5rem;
+  }
+  
+  .contact-info p {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .contact-form {
+    padding: 20px 15px;
+  }
+  
+  .hero h1 {
+    font-size: 1.7rem;
+  }
+  
+  .section-title h2 {
+    font-size: 1.6rem;
+  }
+  
+  .btn {
+    padding: 10px 20px;
+    font-size: 13px;
+  }
+}
+
+/* Mobile-specific enhancements */
+@media screen and (max-width: 767px) {
+  /* Make sure the container has no horizontal overflow */
+  .container {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 15px;
+    overflow-x: hidden;
+  }
+  
+  /* Ensure contact form fits within the screen */
+  .contact-form {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  
+  /* Adjust input field sizes */
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  /* Form fields take up full width */
+  .form-group {
+    width: 100%;
+  }
+  
+  /* Contact info display on mobile */
+  .contact-info p {
+    word-break: break-word;
+  }
+  
+  /* Make form button full width */
+  .contact-form .btn {
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
