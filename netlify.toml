@@ -9,7 +9,7 @@
 
 # Form handling
 [[redirects]]
-  from = "/ContactForm"
+  from = "/contact-form"
   to = "/success.html"
   status = 301
 

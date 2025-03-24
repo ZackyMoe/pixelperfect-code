@@ -452,22 +452,16 @@
           <div class="contact-form">
             <form
               id="contact-form"
-              name="ContactForm"
+              name="contact-form"
               method="POST"
               data-netlify="true"
-              netlify-honeypot="bot-field"
-              action="/ContactForm"
+              data-netlify-honeypot="bot-field"
+              action="/contact-form"
             >
-              <input type="hidden" name="form-name" value="ContactForm" />
-              <input
-                type="hidden"
-                name="subject"
-                value="New contact from Pixel Perfect website"
-              />
+              <input type="hidden" name="form-name" value="contact-form" />
+              <input type="hidden" name="subject" value="New contact from Pixel Perfect website" />
               <p class="hidden" style="display: none">
-                <label
-                  >Don't fill this out if you're human: <input name="bot-field"
-                /></label>
+                <label>Don't fill this out if you're human: <input name="bot-field" /></label>
               </p>
               <div class="form-group">
                 <label for="name">Name</label>
