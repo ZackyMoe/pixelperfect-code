@@ -7,6 +7,12 @@
   to = "/404.html"
   status = 404
 
+# Form handling
+[[redirects]]
+  from = "/ContactForm"
+  to = "/success.html"
+  status = 301
+
 # Security headers to protect from AI scraping
 [[headers]]
   for = "/*"
