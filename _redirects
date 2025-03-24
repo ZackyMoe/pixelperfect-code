@@ -13,8 +13,9 @@
 # Redirect all paths that don't exist to homepage
 # /*                     /                         301
 
-# Force HTTPS
-# http://*               https://:splat           301! 
+# Form submission success page
+/success.html  200
+/success      /success.html  200
 
-# Form submission redirect - only for POST requests
-/  /success.html  301  POST 
+# Force HTTPS
+http://*  https://:splat  301! 

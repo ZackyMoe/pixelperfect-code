@@ -1,18 +1,17 @@
 [build]
   publish = "/"
 
-# Custom 404 page
+# Form handling - redirect successful form submissions
+[[redirects]]
+  from = "/success"
+  to = "/success.html"
+  status = 200
+
+# Custom 404 page (this should come after other redirects)
 [[redirects]]
   from = "/*"
   to = "/404.html"
   status = 404
-
-# Form handling - only redirect POST requests
-[[redirects]]
-  from = "/"
-  to = "/success.html"
-  status = 301
-  method = "POST"
 
 # Security headers to protect from AI scraping
 [[headers]]
