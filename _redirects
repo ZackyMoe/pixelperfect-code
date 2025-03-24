@@ -16,5 +16,5 @@
 # Force HTTPS
 # http://*               https://:splat           301! 
 
-# Form submission redirect
-/contact-form  /success.html  301 
+# Form submission redirect - only for POST requests
+/  /success.html  301  POST 

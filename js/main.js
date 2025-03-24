@@ -153,71 +153,79 @@ document.addEventListener("DOMContentLoaded", function () {
   // Run once on page load
   animateOnScroll();
 
-  // Form submission handling
+  // Form validation and submission handling
   const contactForm = document.getElementById("contact-form");
+
   if (contactForm) {
-    contactForm.addEventListener("submit", function (e) {
-      // Temporarily prevent default to validate first
-      e.preventDefault();
+    // Form validation
+    function validateForm() {
+      let isValid = true;
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const message = document.getElementById("message").value.trim();
 
-      // If validation passes, submit the form to Netlify
-      if (validateForm()) {
-        // Allow the form to submit to Netlify and redirect to success.html
-        contactForm.submit();
+      // Reset previous error messages
+      document.querySelectorAll(".error-message").forEach((el) => el.remove());
+
+      // Validate name
+      if (name === "") {
+        displayError("name", "Please enter your name");
+        isValid = false;
       }
-      // If validation fails, the form won't submit
+
+      // Validate email
+      if (email === "") {
+        displayError("email", "Please enter your email");
+        isValid = false;
+      } else if (!isValidEmail(email)) {
+        displayError("email", "Please enter a valid email address");
+        isValid = false;
+      }
+
+      // Validate message
+      if (message === "") {
+        displayError("message", "Please enter your message");
+        isValid = false;
+      }
+
+      return isValid;
+    }
+
+    // Helper function to display error messages
+    function displayError(fieldId, message) {
+      const field = document.getElementById(fieldId);
+      const errorDiv = document.createElement("div");
+      errorDiv.className = "error-message";
+      errorDiv.style.color = "red";
+      errorDiv.style.fontSize = "14px";
+      errorDiv.style.marginTop = "5px";
+      errorDiv.textContent = message;
+      field.parentNode.appendChild(errorDiv);
+      field.style.borderColor = "red";
+    }
+
+    // Helper function to validate email format
+    function isValidEmail(email) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return emailRegex.test(email);
+    }
+
+    // Form submission handler for Netlify
+    contactForm.addEventListener("submit", function (e) {
+      if (!validateForm()) {
+        e.preventDefault();
+        return false;
+      }
+
+      // Show loading state
+      const submitButton = contactForm.querySelector('button[type="submit"]');
+      const originalText = submitButton.textContent;
+      submitButton.textContent = "Sending...";
+      submitButton.disabled = true;
+
+      // Let Netlify handle the form submission
+      // The form will submit to / and Netlify will handle the redirect
+      console.log("Form submitted to Netlify");
     });
-  }
-
-  // Form validation
-  function validateForm() {
-    let isValid = true;
-    const name = document.getElementById("name")?.value.trim();
-    const email = document.getElementById("email")?.value.trim();
-    const message = document.getElementById("message")?.value.trim();
-
-    // Reset previous error messages
-    document.querySelectorAll(".error-message").forEach((el) => el.remove());
-
-    // Validate name
-    if (name === "") {
-      displayError("name", "Please enter your name");
-      isValid = false;
-    }
-
-    // Validate email
-    if (email === "") {
-      displayError("email", "Please enter your email");
-      isValid = false;
-    } else if (!isValidEmail(email)) {
-      displayError("email", "Please enter a valid email address");
-      isValid = false;
-    }
-
-    // Validate message
-    if (message === "") {
-      displayError("message", "Please enter your message");
-      isValid = false;
-    }
-
-    return isValid;
-  }
-
-  // Helper function to display error messages
-  function displayError(fieldId, message) {
-    const field = document.getElementById(fieldId);
-    if (!field) return;
-
-    const errorDiv = document.createElement("div");
-    errorDiv.className = "error-message";
-    errorDiv.textContent = message;
-    field.parentNode.appendChild(errorDiv);
-    field.style.borderColor = "#e53935";
-  }
-
-  // Helper function to validate email format
-  function isValidEmail(email) {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
   }
 });
