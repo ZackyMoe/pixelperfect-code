@@ -14,8 +14,7 @@
 # /*                     /                         301
 
 # Form submission success page
-/success.html  200
-/success      /success.html  200
+/success  /success.html  200
 
 # Force HTTPS
 http://*  https://:splat  301! 
